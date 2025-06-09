@@ -69,6 +69,11 @@ export const processAudioUserMessage = async (ctx, { flowDynamic, state, provide
     await flowDynamic([{ media: audioPath }]);
 };
 
+// Envía un archivo multimedia usando flowDynamic
+export const sendMediaToFlow = async (flowDynamic, mediaPath) => {
+    await flowDynamic([{ media: mediaPath }]);
+};
+
 // Cola de mensajes de usuario (texto)
 export const handleQueue = async (userId) => {
     const queue = userQueues.get(userId);
