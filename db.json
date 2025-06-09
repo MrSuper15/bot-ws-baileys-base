@@ -1,0 +1,125 @@
+[
+  {
+    "ref": "c9f7ca78-d246-4ee7-b25f-6c299f7cb48a",
+    "keyword": "9700570882ac4face6780be73d27ba43",
+    "answer": "Hola",
+    "options": {},
+    "from": "584248778622",
+    "refSerialize": "c22e4066d61d81721def9b25d8a397e8"
+  },
+  {
+    "ref": "ans_e259bc16-64f3-438f-8c90-32fc52c185aa",
+    "keyword": "key_a602c072-4148-4881-b619-9fd75c4ede78",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "49917b190c4bc0688aa7b0e433da2d0d",
+    "from": "584248778622"
+  },
+  {
+    "ref": "11bb325b-3276-4dfc-a874-cfdfacc031f8",
+    "keyword": null,
+    "answer": "¡Hola! ¿En qué puedo ayudarte hoy? ¿Quieres hacer una reserva en nuestro hotel o en el restaurante, o necesitas información?",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "584248778622",
+    "refSerialize": "3fc3fbcfc63c5d363566b0e3f7f0ab33"
+  },
+  {
+    "ref": "70ff582f-caa7-4979-8ea1-15a1d210ebaa",
+    "keyword": "49917b190c4bc0688aa7b0e433da2d0d",
+    "answer": "Me gustaría hacer una reservación en el restaurante",
+    "options": {},
+    "from": "584248778622",
+    "refSerialize": "f16bf00de34c1fe0ca605e1ef843ee33"
+  },
+  {
+    "ref": "ans_e259bc16-64f3-438f-8c90-32fc52c185aa",
+    "keyword": "key_a602c072-4148-4881-b619-9fd75c4ede78",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "49917b190c4bc0688aa7b0e433da2d0d",
+    "from": "584248778622"
+  },
+  {
+    "ref": "5bdac192-3495-440c-8d68-2160d39a6993",
+    "keyword": null,
+    "answer": "¡Perfecto! ¿Para cuántas personas te gustaría hacer la reservación y a qué hora? Nuestro restaurante con cocina franconia está abierto de 17:00 a 20:30 horas.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "584248778622",
+    "refSerialize": "ba36159a220fb1c47b48ca46cfdddff7"
+  },
+  {
+    "ref": "585a0267-a4aa-4d57-83a0-db5ed2919b8e",
+    "keyword": "49917b190c4bc0688aa7b0e433da2d0d",
+    "answer": "_event_voice_note__ab50786c-a00e-4363-a134-e4c01c095e8f",
+    "options": {},
+    "from": "584248778622",
+    "refSerialize": "3228e3fa5e7ada276c758dd58201c001"
+  },
+  {
+    "ref": "ans_9218648f-5794-4311-9546-51a79cfcf255",
+    "keyword": "key_89a07005-e60c-4f99-9ae2-66d1885c1966",
+    "answer": "¡Recibí tu mensaje de voz! Dame un momento para escuchar y responderte. 🔉🔉",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "d0e7654fc2c66144ed966e1af9ecbe84",
+    "from": "584248778622"
+  },
+  {
+    "ref": "ans_ba6bd241-ff63-4fa1-a4a3-ec17c8d34b48",
+    "keyword": "ans_9218648f-5794-4311-9546-51a79cfcf255",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "fe5f5a00e07c7e28340d1d5124b2c759",
+    "from": "584248778622"
+  },
+  {
+    "ref": "6e82b34d-caa3-4298-822c-b53848a7b412",
+    "keyword": null,
+    "answer": " ",
+    "options": {
+      "media": "tmp/audio_1749488007225.mp3",
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "584248778622",
+    "refSerialize": "8479f3beb61500f131d500af38b2f96b"
+  }
+]
