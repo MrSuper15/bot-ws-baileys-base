@@ -2,9 +2,10 @@ import { OGGtoMP3 } from "services/OOGtoMP3";
 import { voiceToText } from "services/whisper";
 import fs from "fs/promises";
 
+// Maneja la conversión y transcripción de archivos de audio
 export const audioHandler = async (ctx, provider) => {
     try {
-        // Definir la carpeta de destino
+        // Definir la carpeta de destino para las notas de voz
         const voiceNotesFolder = "./tmp/";
 
         // Guardar el archivo multimedia y obtener su ruta

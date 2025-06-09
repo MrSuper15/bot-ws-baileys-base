@@ -8,11 +8,11 @@ console.log('OpenAI API Key:', OPENAI_API_KEY ? 'Loaded' : 'Not Loaded');
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 /**
- * Handles the 'requires_action' status of a run by processing tool calls,
- * submitting their outputs, and updating the run status.
+ * Maneja el estado 'requires_action' de un run procesando tool calls,
+ * enviando sus salidas y actualizando el estado del run.
  */
 const handleRequiresAction = async (threadId: string, run: any): Promise<any> => {
-    console.log('Handling requires_action...');
+    console.log('Manejando requires_action...');
     saveLog('run_action_logs', run.id, run); 
 
     if (run.required_action?.submit_tool_outputs?.tool_calls) {
@@ -48,23 +48,23 @@ const handleRequiresAction = async (threadId: string, run: any): Promise<any> =>
         });
 
         if (toolOutputs.length > 0) {
-            console.log('Submitting tool outputs...');
+            console.log('Enviando salidas de herramientas...');
             run = await openai.beta.threads.runs.submitToolOutputs(run.id, { thread_id: run.thread_id, tool_outputs: toolOutputs });
-            console.log("Tool outputs submitted. New status:", run.status);
+            console.log("Salidas enviadas. Nuevo estado:", run.status);
         }
 
         return handleRunStatus(threadId, run);
     } else {
-        throw new Error(`No tool calls found for run ${run.id}.`);
+        throw new Error(`No se encontraron tool calls para el run ${run.id}.`);
     }
 };
 
 /**
- * Handles the status of a run, including polling for intermediate states
- * and processing final states such as 'completed' or 'requires_action'.
+ * Maneja el estado de un run, incluyendo polling para estados intermedios
+ * y procesando estados finales como 'completed' o 'requires_action'.
  */
 const handleRunStatus = async (threadId: string, run: any): Promise<any> => {
-    console.log('Handling run status:', run.status);
+    console.log('Manejando estado del run:', run.status);
 
     const pollingInterval = 1500;
     const pollingTimeout = 120 * 1000;
@@ -72,13 +72,13 @@ const handleRunStatus = async (threadId: string, run: any): Promise<any> => {
     let currentRun = run;
 
     while (['queued', 'in_progress', 'cancelling'].includes(currentRun.status) && (Date.now() - startTime < pollingTimeout)) {
-        console.log(`Run ${currentRun.id} is ${currentRun.status}. Polling...`);
+        console.log(`Run ${currentRun.id} está ${currentRun.status}. Esperando...`);
         await new Promise(resolve => setTimeout(resolve, pollingInterval));
         currentRun = await openai.beta.threads.runs.retrieve(threadId, currentRun.id);
     }
 
     if (['queued', 'in_progress', 'cancelling'].includes(currentRun.status)) {
-        throw new Error(`Polling timed out for run ${currentRun.id}. Last status: ${currentRun.status}`);
+        throw new Error(`Timeout esperando el run ${currentRun.id}. Último estado: ${currentRun.status}`);
     }
 
     switch (currentRun.status) {
@@ -94,30 +94,29 @@ const handleRunStatus = async (threadId: string, run: any): Promise<any> => {
         case "failed":
         case "cancelled":
         case "expired": {
-            throw new Error(`Run ended with status "${currentRun.status}". Error: ${currentRun.last_error?.message}`);
+            throw new Error(`El run terminó con estado "${currentRun.status}". Error: ${currentRun.last_error?.message}`);
         }
 
         default: {
-            throw new Error(`Unknown status: ${currentRun.status} for run ${currentRun.id}`);
+            throw new Error(`Estado desconocido: ${currentRun.status} para el run ${currentRun.id}`);
         }
     }
 };
 
 /**
- * Creates a new run for the assistant, polls its status, and retrieves
- * the final response text if the run completes successfully.
+ * Crea un nuevo run para el assistant, hace polling de su estado y obtiene
+ * la respuesta final si el run termina exitosamente.
  */
 export const run = async (threadId: string, assistant: any): Promise<string> => {
     let finalResponseText = '';
     let runId: string | null = null;
 
     try {
-        console.log(`Creating and polling run for assistant ${assistant.id} in thread ${threadId}`);
+        console.log(`Creando y haciendo polling del run para el assistant ${assistant.id} en el thread ${threadId}`);
         const initialRun = await openai.beta.threads.runs.createAndPoll(threadId, { assistant_id: assistant.id });
         runId = initialRun.id;
 
         const finalResult = await handleRunStatus(threadId, initialRun);
-
         if (Array.isArray(finalResult)) {
             const latestAssistantMessage = finalResult.find(msg =>
                 msg.run_id === runId && msg.role === 'assistant' &&
@@ -129,10 +128,10 @@ export const run = async (threadId: string, assistant: any): Promise<string> => 
                 finalResponseText = textContent.text.value;
             }
         } else {
-            throw new Error('Unexpected result from run processing.');
+            throw new Error('Resultado inesperado del procesamiento del run.');
         }
     } catch (error) {
-        console.error('Error during run process:', error);
+        console.error('Error durante el proceso del run:', error);
         throw error;
     }
 
@@ -140,8 +139,7 @@ export const run = async (threadId: string, assistant: any): Promise<string> => 
 };
 
 /**
- * Sends a message to the assistant, creates a thread if necessary,
- * and retrieves the assistant's response.
+ * Envía un mensaje al assistant, crea un thread si es necesario y obtiene la respuesta.
  */
 export const toAsk = async (assistantId: string, message: string, state: BotStateStandAlone) => {
     let thread = state.get('thread') ?? null;
@@ -151,7 +149,7 @@ export const toAsk = async (assistantId: string, message: string, state: BotStat
         thread = (await createThread()).id;
         await state.update({ thread });
     }
-
     await addMessage(thread, message);
-    return await run(thread, assistant);
+    const response = await run(thread, assistant);
+    return response;
 };

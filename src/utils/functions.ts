@@ -2,17 +2,18 @@ import { toAskWithStreaming } from "./runWithStreaming";
 import { saveLog } from "../logs/saveLog";
 import { textToSpeech } from "../../services/textoToSpeech";
 
-// Shared state
+// Estado compartido para colas y locks de usuario
 export const userQueues = new Map();
 export const userLocks = new Map();
 
-// Presence
+// Presencia: simula que el bot está escribiendo
 export const typing = async function (ctx: any, provider: any) {
     if (provider && provider?.vendor && provider.vendor?.sendPresenceUpdate) {
         const id = ctx.key.remoteJid;
         await provider.vendor.sendPresenceUpdate('composing', id);
     }
 };
+// Presencia: simula que el bot está grabando audio
 export const recording = async function (ctx: any, provider: any) {
     if (provider && provider?.vendor && provider.vendor?.sendPresenceUpdate) {
         const id = ctx.key.remoteJid;
@@ -20,7 +21,7 @@ export const recording = async function (ctx: any, provider: any) {
     }
 };
 
-// Mensaje de usuario (texto)
+// Procesa mensajes de usuario (texto)
 const ASSISTANT_ID = process.env.ASSISTANT_ID ?? '';
 export const processUserMessage = async (ctx, { flowDynamic, state, provider }) => {
     await typing(ctx, provider);
@@ -47,7 +48,7 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
     }
 };
 
-// Mensaje de usuario (audio)
+// Procesa mensajes de usuario (audio)
 export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider }) => {
     await recording(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
@@ -78,7 +79,7 @@ export const handleQueue = async (userId) => {
         try {
             await processUserMessage(ctx, { flowDynamic, state, provider });
         } catch (error) {
-            console.error(`Error processing message for user ${userId}:`, error);
+            console.error(`Error procesando mensaje para el usuario ${userId}:`, error);
         } finally {
             userLocks.set(userId, false);
         }
@@ -97,7 +98,7 @@ export const handleAudioQueue = async (userId) => {
         try {
             await processAudioUserMessage(ctx, { flowDynamic, state, provider });
         } catch (error) {
-            console.error(`Error processing audio message for user ${userId}:`, error);
+            console.error(`Error procesando mensaje de audio para el usuario ${userId}:`, error);
         } finally {
             userLocks.set(userId, false);
         }
