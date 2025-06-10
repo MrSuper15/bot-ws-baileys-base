@@ -33,5 +33,6 @@
     "typescript": "^5.8.3"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": { "node": ">=20" } 
 }
