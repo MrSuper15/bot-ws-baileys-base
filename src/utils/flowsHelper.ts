@@ -1,7 +1,7 @@
 import { addKeyword } from '@builderbot/bot';
 import { userLocks, userQueues } from './functions';
 
-// Función genérica para manejar colas de usuario
+// Función genérica de manejo de colas
 export const handleGenericQueue = async (userId, processFn) => {
     const queue = userQueues.get(userId);
     if (userLocks.get(userId)) return;
@@ -11,7 +11,7 @@ export const handleGenericQueue = async (userId, processFn) => {
         try {
             await processFn(ctx, { flowDynamic, state, provider });
         } catch (error) {
-            console.error(`Error procesando mensaje para el usuario ${userId}:`, error);
+            console.error(`Error processing message for user ${userId}:`, error);
         } finally {
             userLocks.set(userId, false);
         }
@@ -20,7 +20,7 @@ export const handleGenericQueue = async (userId, processFn) => {
     userQueues.delete(userId);
 };
 
-// Función auxiliar para crear flujos con encolado
+// Función auxiliar para crear flujos de encolado
 export function addQueueFlow(event, processFn, preProcessFn = null, answer = null) {
     let flow = addKeyword(event);
     if (answer) flow = flow.addAnswer(answer);

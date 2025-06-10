@@ -1,5 +1,6 @@
 import { sendMediaToFlow } from './functions';
 import { join } from 'path';
+import { redirectToSales } from './outputs_functions/redirectToSales';
 
 // Tipos para tool calls y outputs
 export type ToolCall = {
@@ -13,33 +14,34 @@ export type ToolOutput = {
   output: string;
 };
 
-// Manejadores de salida para cada tool call
-export const toolOutputHandlers: Record<string, (toolCall: ToolCall, flowDynamic?: any) => Promise<ToolOutput> | ToolOutput> = {
-  getCurrentTemperature: (toolCall) => ({
-    tool_call_id: toolCall.id,
-    output: "57",
-  }),
-  getRainProbability: (toolCall) => ({
-    tool_call_id: toolCall.id,
-    output: "0.06",
-  }),
-  // Ejemplo: enviar una imagen de menú
-  sendMenuImage: async (toolCall, flowDynamic) => {
-    const imagePath = join(process.cwd(), 'assets', 'salad.jpg'); 
-    if (flowDynamic) {
-      await sendMediaToFlow(flowDynamic, imagePath);
+/**
+ * Extrae y parsea los argumentos de un toolCall de OpenAI.
+ * Devuelve un objeto con los parámetros o {} si no existen o hay error de parseo.
+ */
+export function getToolCallArgs(toolCall: ToolCall): any {
+  try {
+    if (toolCall.function && typeof (toolCall.function as any).arguments === 'string') {
+      return JSON.parse((toolCall.function as any).arguments);
     }
-    return {
-      tool_call_id: toolCall.id,
-      output: JSON.stringify({ status: "success", mediaSent: imagePath }),
-    };
+  } catch (e) {
+    console.error('Error parsing toolCall arguments:', e);
   }
+  return {};
+}
+
+// Handlers de salida para cada tool call
+export const toolOutputHandlers: Record<string, (toolCall: ToolCall, flowDynamic?: any, ctx?: any, provider?: any) => Promise<ToolOutput> | ToolOutput> = {
+  // Redirigir lead a ventas y enviar summary
+  redirect_to_sales: redirectToSales,
 };
 
-// Obtiene la salida para un tool call dado
-export async function getToolOutput(toolCall: ToolCall, flowDynamic?: any): Promise<ToolOutput> {
+/**
+ * Obtiene la salida para un tool call dado.
+ * Busca el handler adecuado y lo ejecuta, o responde por defecto.
+ */
+export async function getToolOutput(toolCall: ToolCall, flowDynamic?: any, ctx?: any, provider?: any): Promise<ToolOutput> {
   const handler = toolOutputHandlers[toolCall.function.name];
-  if (handler) return await handler(toolCall, flowDynamic);
+  if (handler) return await handler(toolCall, flowDynamic, ctx, provider);
   return {
     tool_call_id: toolCall.id,
     output: JSON.stringify({ status: "success", result: true }),

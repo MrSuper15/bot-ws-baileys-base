@@ -5,7 +5,7 @@ import { JsonFileDB as Database } from '@builderbot/database-json'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import { processUserMessage, processAudioUserMessage } from './utils/functions';
 import { audioHandler } from './utils/audioHandler';
-import { addQueueFlow, handleGenericQueue } from './utils/flowsHelper';
+import { addQueueFlow } from './utils/flowsHelper';
 
 // Flujos
 const aiFlow = addQueueFlow(EVENTS.WELCOME, processUserMessage);

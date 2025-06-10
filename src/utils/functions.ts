@@ -26,7 +26,8 @@ const ASSISTANT_ID = process.env.ASSISTANT_ID ?? '';
 export const processUserMessage = async (ctx, { flowDynamic, state, provider }) => {
     await typing(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
-    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state);
+    // Solo pasa el mensaje y el provider
+    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state, ctx, provider);
     saveLog(
         'user_message_logs',
         ctx.key?.id || ctx.from || 'unknown',
@@ -40,7 +41,8 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
     );
     const chunks = response.split(/\n\n+/);
     for (const chunk of chunks) {
-        const cleanedChunk = chunk.trim().replace(/【.*?】[ ] /g, "");
+        // Elimina cualquier referencia tipo 【8:0†flujo_curso_ingles.txt】 en cualquier parte del texto
+        const cleanedChunk = chunk.trim().replace(/【[^】]+】/g, "");
         if (cleanedChunk) {
             console.log(`[Response sent][BOT][${ctx.from}] ${cleanedChunk}`);
             await flowDynamic([{ body: cleanedChunk }]);
@@ -52,7 +54,8 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
 export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider }) => {
     await recording(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
-    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state);
+    // Solo pasa el mensaje y el provider
+    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state, provider);
     saveLog(
         'user_message_logs',
         ctx.key?.id || ctx.from || 'unknown',

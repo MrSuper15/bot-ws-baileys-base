@@ -9,17 +9,17 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY ?? '';
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 // Ejecuta un run con streaming y maneja eventos de tool calls
-export const runWithStreaming = async (threadId: string, assistant: any): Promise<string> => {
+export const runWithStreaming = async (threadId: string, assistant: any, ctx: any, provider?: any): Promise<string> => {
     let response = '';
     let runId: string | null = null;
 
-    // Maneja eventos de required_action y envía tool outputs usando el método Stream
+    // Handles required_action events and submits tool outputs using the Stream method
     async function handleRequiresAction(data: any, runId: string, threadId: string) {
         return new Promise<void>((resolve, reject) => {
             (async () => {
                 try {
                     const toolCalls = data.required_action?.submit_tool_outputs?.tool_calls || [];
-                    const toolOutputs = toolCalls.map(getToolOutput);
+                    const toolOutputs = await Promise.all(toolCalls.map(tc => getToolOutput(tc, undefined, ctx, provider)));
                     const stream = openai.beta.threads.runs.submitToolOutputsStream(
                         runId,
                         {
@@ -66,7 +66,6 @@ export const runWithStreaming = async (threadId: string, assistant: any): Promis
         }
     }
 
-    // Inicia el stream de eventos del assistant
     const stream = await openai.beta.threads.runs.stream(
         threadId,
         { assistant_id: assistant.id }
@@ -100,7 +99,7 @@ export const runWithStreaming = async (threadId: string, assistant: any): Promis
 };
 
 // Envía un mensaje al assistant y obtiene la respuesta usando streaming
-export const toAskWithStreaming = async (assistantId: string, message: string, state: BotStateStandAlone) => {
+export const toAskWithStreaming = async (assistantId: string, message: string, state: BotStateStandAlone, ctx?: any, provider?: any) => {
     let thread = state.get('thread') ?? null;
     const assistant = { id: assistantId };
     if (!thread) {
@@ -108,6 +107,6 @@ export const toAskWithStreaming = async (assistantId: string, message: string, s
         await state.update({ thread });
     }
     await addMessage(thread, message);
-    const response = await runWithStreaming(thread, assistant);
+    const response = await runWithStreaming(thread, assistant, ctx, provider);
     return response;
 };
