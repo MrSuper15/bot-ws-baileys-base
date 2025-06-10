@@ -32,6 +32,7 @@ export async function redirectToSales(toolCall: ToolCall, flowDynamic: any, ctx:
     if (typeof global.salesAgentIndex !== 'number') global.salesAgentIndex = 0;
     const agent = SALES_AGENTS[global.salesAgentIndex];
     global.salesAgentIndex = (global.salesAgentIndex + 1) % SALES_AGENTS.length;
+    console.log(`[redirect_to_sales] Usuario asignado a agente: ${agent.name} (${agent.number})`);
 
     // --- Datos del usuario ---
     const userNumber = ctx.from;
@@ -74,7 +75,7 @@ export async function redirectToSales(toolCall: ToolCall, flowDynamic: any, ctx:
     }
     return {
       tool_call_id: toolCall.id,
-      output: JSON.stringify({ status: "success", message: "Los datos del usuario han sido enviados a un agente humano que lo contactará pronto.", redirected: true }),
+      output: JSON.stringify({ status: "success", message: `Los datos del usuario han sido enviados a un agente humano que lo contactará pronto, su nombre es ${agent.name}.`, redirected: true }),
     };
   } catch (err) {
     return {
