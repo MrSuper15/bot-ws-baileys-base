@@ -49,6 +49,7 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
 };
 
 // Procesa mensajes de usuario (audio)
+// answerWithAudio: controlado por variable de entorno ANSWER_WITH_AUDIO ("true" para audio, cualquier otro valor o vacío para texto)
 export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider }) => {
     await recording(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
@@ -64,9 +65,20 @@ export const processAudioUserMessage = async (ctx, { flowDynamic, state, provide
             state: state?.toJSON ? state.toJSON() : state
         }
     );
-    const audioPath = await textToSpeech(response);
-    console.log(`[Response sent][BOT][${ctx.from}] ${response}`);
-    await flowDynamic([{ media: audioPath }]);
+    // Lee la variable de entorno y por defecto es false si está vacía o no es 'true'
+    const answerWithAudio = (process.env.ANSWER_WITH_AUDIO || '').toLowerCase() === 'true';
+    if (answerWithAudio) {
+        const audioPath = await textToSpeech(response);
+        console.log(`[Response sent][BOT][${ctx.from}] ${response}`);
+        await flowDynamic([{ media: audioPath }]);
+    } else {
+        // Solo responde con texto transcrito
+        const cleanedChunk = response.trim().replace(/【.*?】[ ] /g, "");
+        if (cleanedChunk) {
+            console.log(`[Response sent][BOT][${ctx.from}] ${cleanedChunk}`);
+            await flowDynamic([{ body: cleanedChunk }]);
+        }
+    }
 };
 
 // Envía un archivo multimedia usando flowDynamic
