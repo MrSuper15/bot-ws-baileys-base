@@ -1,51 +1,15 @@
 [
   {
-    "ref": "836a50e4-5d4e-4c6b-b652-5674d78d8999",
-    "keyword": "86e88b9ff5ece7403bdf1b84c334e1de",
-    "answer": "Hola",
-    "options": {},
-    "from": "584248778622",
-    "refSerialize": "c22e4066d61d81721def9b25d8a397e8"
-  },
-  {
-    "ref": "ans_e220412f-9255-4fe8-b38e-584e7b7dff44",
-    "keyword": "key_2caafd30-068a-4c43-85b4-c88d4b833805",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "21713726499d73d19be55a5194622ce0",
-    "from": "584248778622"
-  },
-  {
-    "ref": "302dfc43-0584-4559-88a4-4774384f271d",
-    "keyword": null,
-    "answer": "¡Hola! 😊 Soy Cami, tu asistente de Insignia Education. ¡Qué alegría tenerte por aquí! Cuéntame, ¿qué curso te interesa o qué te gustaría aprender hoy?",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "ec67a5142d92cc246189cff947f02e8a"
-  },
-  {
-    "ref": "fbce3091-cdf8-455b-afc1-f86b78eb0dc8",
+    "ref": "9b3522ed-3bb0-4dbd-90c9-3e5cd2014851",
     "keyword": "21713726499d73d19be55a5194622ce0",
-    "answer": "Me gustaría saber si tienen un curso de fonética",
+    "answer": "Hallo",
     "options": {},
     "from": "584248778622",
-    "refSerialize": "c12c0740385efde8a830dbcf48285313"
+    "refSerialize": "0fc5246fade43b8fe5d3d06ef69c64e2"
   },
   {
-    "ref": "ans_e220412f-9255-4fe8-b38e-584e7b7dff44",
-    "keyword": "key_2caafd30-068a-4c43-85b4-c88d4b833805",
+    "ref": "ans_e5d72c6b-27df-4678-a0c9-c6898a991ec5",
+    "keyword": "key_e65a8888-7f41-4079-9a95-35170f75ec37",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -55,13 +19,13 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "21713726499d73d19be55a5194622ce0",
+    "refSerialize": "90f8d5b96da12db687ceb29aa783914f",
     "from": "584248778622"
   },
   {
-    "ref": "7465996c-78fa-4eb2-b1bf-9c935935e45a",
+    "ref": "968e590c-7b46-4cd7-ab32-c010a317d183",
     "keyword": null,
-    "answer": "¡Qué interesante elección! 😊 El curso de fonética y pronunciación está diseñado para aquellos que tienen al menos un nivel 6 de inglés.",
+    "answer": "Guten Tag! Wie kann ich Ihnen heute behilflich sein? Benötigen Sie Informationen über unser Hotel oder haben Sie eine spezielle Anfrage? 😊",
     "options": {
       "media": null,
       "buttons": [],
@@ -69,32 +33,19 @@
       "delay": 0
     },
     "from": "584248778622",
-    "refSerialize": "5adac8a51b8e81ee9d8503b7db7549e8"
+    "refSerialize": "afa3dadc07d63dd8deb172f59cce0632"
   },
   {
-    "ref": "c90a3118-14f9-40c2-8732-dacb23c0a4f2",
-    "keyword": null,
-    "answer": "¿Cómo te gustaría que continúe? ¿Te gustaría saber más sobre el contenido del curso, los horarios o la modalidad de estudio?",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "259cb98f6663f71382d70ae78a85d49b"
-  },
-  {
-    "ref": "237feae6-fe07-4f55-8447-c1ccf3cf865c",
-    "keyword": "21713726499d73d19be55a5194622ce0",
-    "answer": "Y como se que nivel de inglés soy?",
+    "ref": "aa64255c-d7c9-4c60-960f-9a2674ae4c1d",
+    "keyword": "90f8d5b96da12db687ceb29aa783914f",
+    "answer": "Was kannst du machen?",
     "options": {},
     "from": "584248778622",
-    "refSerialize": "f9fbb77702e16eb44e3f0e8ced039279"
+    "refSerialize": "78d03c173e16d2afe859c844248e18b8"
   },
   {
-    "ref": "ans_e220412f-9255-4fe8-b38e-584e7b7dff44",
-    "keyword": "key_2caafd30-068a-4c43-85b4-c88d4b833805",
+    "ref": "ans_e5d72c6b-27df-4678-a0c9-c6898a991ec5",
+    "keyword": "key_e65a8888-7f41-4079-9a95-35170f75ec37",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -104,13 +55,13 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "21713726499d73d19be55a5194622ce0",
+    "refSerialize": "90f8d5b96da12db687ceb29aa783914f",
     "from": "584248778622"
   },
   {
-    "ref": "729b1527-fca9-4121-ae45-2f2b95642a50",
+    "ref": "29a826d5-2366-46c8-86b4-994eaca28f84",
     "keyword": null,
-    "answer": "¡Qué buena pregunta! 😊 Hay varias maneras de determinar tu nivel de inglés:",
+    "answer": "Ich bin hier, um Ihnen Informationen über unser Hotel und dessen Angebote zur Verfügung zu stellen. Hier sind einige der Möglichkeiten, wie ich Ihnen helfen kann:",
     "options": {
       "media": null,
       "buttons": [],
@@ -118,12 +69,12 @@
       "delay": 0
     },
     "from": "584248778622",
-    "refSerialize": "23a15ce65b994e141dcb2d721d1b469a"
+    "refSerialize": "b4920aff689e07e859ea19e50194a042"
   },
   {
-    "ref": "0b7ec400-e407-4cff-94e9-5ecd76aa653f",
+    "ref": "177a8af1-efb6-401b-b020-d86d7342e6c1",
     "keyword": null,
-    "answer": "1. **Pruebas en línea:** Existen muchas pruebas gratuitas que puedes hacer para evaluar tu nivel de inglés general.\n   \n2. **Certificaciones anteriores:** Si has tomado cursos o exámenes oficiales (como TOEFL, IELTS, Cambridge), puedes usar los niveles que obtuviste como referencia.",
+    "answer": "1. Informationen über unsere Zimmer und deren Ausstattung.\n2. Details über unsere gastronomischen Einrichtungen und die Speisekarte.\n3. Vorschläge für Aktivitäten und Sehenswürdigkeiten in der Umgebung.\n4. Informationen über spezielle Veranstaltungen, wie z.B. Silvesterfeiern.\n5. Unterstützung bei Reservierungen für Zimmer oder das Restaurant.",
     "options": {
       "media": null,
       "buttons": [],
@@ -131,12 +82,12 @@
       "delay": 0
     },
     "from": "584248778622",
-    "refSerialize": "b1235952f3c9a35eb596ed554efcfc50"
+    "refSerialize": "3afe2247ab55c1d044b98d979ffbc054"
   },
   {
-    "ref": "b0b130bc-33df-46dd-abad-233e86bf8cd8",
+    "ref": "48533a59-e13d-4fa9-aad7-9e34e2bb2fc5",
     "keyword": null,
-    "answer": "3. **Autoevaluación:** Algunas veces, los programas de aprendizaje ofrecen autoevaluaciones basadas en descriptores de niveles comunes, como los del Marco Común Europeo de Referencia (MCER).",
+    "answer": "Bitte lassen Sie mich wissen, welche Informationen Sie interessieren oder wie ich Ihnen helfen kann! 😊",
     "options": {
       "media": null,
       "buttons": [],
@@ -144,205 +95,6 @@
       "delay": 0
     },
     "from": "584248778622",
-    "refSerialize": "198665742a57e9cc4e1616c7a4e472e3"
-  },
-  {
-    "ref": "a01cf93f-7b3f-49b0-8b1c-7dbd08545e23",
-    "keyword": null,
-    "answer": "¿Te gustaría que te ayude con alguna información específica sobre cómo acceder a una prueba o tienes más preguntas sobre el curso de fonética? 😊💬",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "1afe769dfb1ddedc31dfd1ac0b87cf0c"
-  },
-  {
-    "ref": "330ee475-85ea-4888-a3cf-1e752246d705",
-    "keyword": "21713726499d73d19be55a5194622ce0",
-    "answer": "Me gustaría saber cómo acceder a una prueba",
-    "options": {},
-    "from": "584248778622",
-    "refSerialize": "f308270d45ee0ac9c4199235b17e3d0a"
-  },
-  {
-    "ref": "ans_e220412f-9255-4fe8-b38e-584e7b7dff44",
-    "keyword": "key_2caafd30-068a-4c43-85b4-c88d4b833805",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "21713726499d73d19be55a5194622ce0",
-    "from": "584248778622"
-  },
-  {
-    "ref": "1d7f7696-8f28-4910-959f-4caa862783d4",
-    "keyword": null,
-    "answer": "¡Perfecto! 😊 Para acceder a una prueba de nivel de inglés, puedes considerar las siguientes opciones:",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "48a34760eb897044486b3c63b39b6b75"
-  },
-  {
-    "ref": "6d9c52a2-926c-429b-b75c-3600525567e4",
-    "keyword": null,
-    "answer": "1. **Sitios web de educación en idiomas:** Muchas plataformas ofrecen pruebas en línea. Algunas son gratuitas y otras pueden tener un costo.",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "b06ba6d775986601b017268e5809c20a"
-  },
-  {
-    "ref": "685d1ca1-444b-4ac9-b2ba-2c0e8d935b46",
-    "keyword": null,
-    "answer": "2. **Centros de idiomas locales:** A menudo, las escuelas de idiomas ofrecen pruebas de nivelación gratuitas o a bajo costo.",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "d441c784b4a3040dd61def4523865430"
-  },
-  {
-    "ref": "b5c91e38-01b7-45e4-a86b-2ce12040c9a8",
-    "keyword": null,
-    "answer": "3. **Universidades y colegios:** Algunas instituciones educativas ofrecen pruebas de nivel en inglés para la comunidad.",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "8e7c1f2f8dde0e31eaecae0cfb319d95"
-  },
-  {
-    "ref": "c3dfd1c8-c961-40ba-8252-cf26dd5d1ccb",
-    "keyword": null,
-    "answer": "Puedo ayudarte a buscar alguna opción en particular o guiarte si ya tienes en mente una plataforma o institución. ¿Cómo te gustaría proceder? 📚",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "d1d9a344a0f71c9b0990b824e6b592b4"
-  },
-  {
-    "ref": "0674aac0-8211-437f-9ae9-b8e63f33d820",
-    "keyword": "21713726499d73d19be55a5194622ce0",
-    "answer": "En insignia no hay pruebas de nivelación?",
-    "options": {},
-    "from": "584248778622",
-    "refSerialize": "9288e3f334bfef5f309b98a49b19a2f0"
-  },
-  {
-    "ref": "ans_e220412f-9255-4fe8-b38e-584e7b7dff44",
-    "keyword": "key_2caafd30-068a-4c43-85b4-c88d4b833805",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "21713726499d73d19be55a5194622ce0",
-    "from": "584248778622"
-  },
-  {
-    "ref": "2a02ea4f-fa15-4871-bfd9-c58de28264e2",
-    "keyword": null,
-    "answer": "Voy a verificar si tenemos detalles sobre pruebas de nivelación en Insignia Education. Un momento, por favor. 😊🔍¡Claro que sí! En Insignia Education, puedes realizar una prueba de nivelación para determinar tu nivel de inglés antes de comenzar un curso. La prueba tiene un costo de $10 e incluye dos partes: una parte escrita y una entrevista oral de 10 minutos por Zoom con uno de nuestros profesores.",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "f125f46d742f110b8e56f6dacca69867"
-  },
-  {
-    "ref": "59709092-c050-4ad8-b6dd-9a2bb13f2b5f",
-    "keyword": null,
-    "answer": "¿Te gustaría que te agendemos para la próxima prueba o necesitas más información sobre cómo realizarla? 😊📚",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "a16ca9e6fbba933e10af6c2930cf2821"
-  },
-  {
-    "ref": "f1f68321-82ac-4ffc-87e6-6c3ca40e83ba",
-    "keyword": "21713726499d73d19be55a5194622ce0",
-    "answer": "Ok me gustaría inscribirme en la prueba y en el curso de fonética",
-    "options": {},
-    "from": "584248778622",
-    "refSerialize": "21c7b4d933dbac8615971097ad5da3af"
-  },
-  {
-    "ref": "ans_e220412f-9255-4fe8-b38e-584e7b7dff44",
-    "keyword": "key_2caafd30-068a-4c43-85b4-c88d4b833805",
-    "answer": "__call_action__",
-    "options": {
-      "buttons": [],
-      "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": true
-    },
-    "refSerialize": "21713726499d73d19be55a5194622ce0",
-    "from": "584248778622"
-  },
-  {
-    "ref": "32bb9b4c-7994-40f2-9b81-17a257e49b1f",
-    "keyword": null,
-    "answer": "¡Genial! 😊 He enviado tus datos a nuestro equipo, y un asesor humano se pondrá en contacto contigo pronto para ayudarte con la inscripción en la prueba de nivelación y en el curso de fonética.",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "83080ea92daec03cdf2eea9f1128e2a7"
-  },
-  {
-    "ref": "df925cde-9c40-4af4-8e63-415fe7a7dcca",
-    "keyword": null,
-    "answer": "Si tienes alguna otra pregunta o necesitas más asistencia, aquí estaré para ayudarte. ¡Estoy emocionada por esta nueva aventura de aprendizaje que estás a punto de comenzar! 📚✨",
-    "options": {
-      "media": null,
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "47d6439f308b68b0610e521cc57ebee5"
+    "refSerialize": "15830db4c9d56e4bf089ed769232255e"
   }
 ]

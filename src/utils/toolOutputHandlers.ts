@@ -1,7 +1,3 @@
-import { sendMediaToFlow } from './functions';
-import { join } from 'path';
-import { redirectToSales } from './outputs_functions/redirectToSales';
-
 // Tipos para tool calls y outputs
 export type ToolCall = {
   id: string;
@@ -32,7 +28,7 @@ export function getToolCallArgs(toolCall: ToolCall): any {
 // Handlers de salida para cada tool call
 export const toolOutputHandlers: Record<string, (toolCall: ToolCall, flowDynamic?: any, ctx?: any, provider?: any) => Promise<ToolOutput> | ToolOutput> = {
   // Redirigir lead a ventas y enviar summary
-  redirect_to_sales: redirectToSales,
+
 };
 
 /**
