@@ -16,7 +16,11 @@ export async function restaurantMakeReservationHandler(toolCall: ToolCall, provi
     // Los datos de la reservación vienen en toolCall.arguments o toolCall.args
     let args: any = {};
     if (toolCall.arguments) {
-      try { args = typeof toolCall.arguments === 'string' ? JSON.parse(toolCall.arguments) : toolCall.arguments; } catch {}
+      try {
+        args = typeof toolCall.arguments === 'string' ? JSON.parse(toolCall.arguments) : toolCall.arguments;
+      } catch (e) {
+        // Si ocurre un error al parsear, args se mantiene como objeto vacío
+      }
     } else if (toolCall.args) {
       args = toolCall.args;
     }

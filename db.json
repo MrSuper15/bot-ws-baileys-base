@@ -1,15 +1,15 @@
 [
   {
-    "ref": "c9f7ca78-d246-4ee7-b25f-6c299f7cb48a",
-    "keyword": "9700570882ac4face6780be73d27ba43",
-    "answer": "Hola",
+    "ref": "f814fcdc-2295-4144-8237-547e51193db5",
+    "keyword": "fe5f5a00e07c7e28340d1d5124b2c759",
+    "answer": "Hallo",
     "options": {},
     "from": "584248778622",
-    "refSerialize": "c22e4066d61d81721def9b25d8a397e8"
+    "refSerialize": "0fc5246fade43b8fe5d3d06ef69c64e2"
   },
   {
-    "ref": "ans_e259bc16-64f3-438f-8c90-32fc52c185aa",
-    "keyword": "key_a602c072-4148-4881-b619-9fd75c4ede78",
+    "ref": "ans_44e66e72-09d3-40f3-b644-c10daad49a3c",
+    "keyword": "key_240392e9-42df-49cb-a81f-bf52ccfb026b",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -19,13 +19,13 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "49917b190c4bc0688aa7b0e433da2d0d",
+    "refSerialize": "30d9dceb04ce11de1e7304f760259d82",
     "from": "584248778622"
   },
   {
-    "ref": "11bb325b-3276-4dfc-a874-cfdfacc031f8",
+    "ref": "29a63ac3-4635-475d-8153-7f5350b94709",
     "keyword": null,
-    "answer": "¡Hola! ¿En qué puedo ayudarte hoy? ¿Quieres hacer una reserva en nuestro hotel o en el restaurante, o necesitas información?",
+    "answer": "Guten Tag! Wie kann ich Ihnen heute behilflich sein? 😊",
     "options": {
       "media": null,
       "buttons": [],
@@ -33,19 +33,19 @@
       "delay": 0
     },
     "from": "584248778622",
-    "refSerialize": "3fc3fbcfc63c5d363566b0e3f7f0ab33"
+    "refSerialize": "38b14878f46dfe31d3b0aa882576a1c0"
   },
   {
-    "ref": "70ff582f-caa7-4979-8ea1-15a1d210ebaa",
-    "keyword": "49917b190c4bc0688aa7b0e433da2d0d",
-    "answer": "Me gustaría hacer una reservación en el restaurante",
+    "ref": "11126d63-2982-423e-bd5c-a93dd622e383",
+    "keyword": "30d9dceb04ce11de1e7304f760259d82",
+    "answer": "Ich wurde gerne einen Tischreservierung machen",
     "options": {},
     "from": "584248778622",
-    "refSerialize": "f16bf00de34c1fe0ca605e1ef843ee33"
+    "refSerialize": "d9b879403e745aae70a400955fe09db4"
   },
   {
-    "ref": "ans_e259bc16-64f3-438f-8c90-32fc52c185aa",
-    "keyword": "key_a602c072-4148-4881-b619-9fd75c4ede78",
+    "ref": "ans_44e66e72-09d3-40f3-b644-c10daad49a3c",
+    "keyword": "key_240392e9-42df-49cb-a81f-bf52ccfb026b",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -55,13 +55,13 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "49917b190c4bc0688aa7b0e433da2d0d",
+    "refSerialize": "30d9dceb04ce11de1e7304f760259d82",
     "from": "584248778622"
   },
   {
-    "ref": "5bdac192-3495-440c-8d68-2160d39a6993",
+    "ref": "684a7254-9a1c-4307-9c89-ceee7ea114dd",
     "keyword": null,
-    "answer": "¡Perfecto! ¿Para cuántas personas te gustaría hacer la reservación y a qué hora? Nuestro restaurante con cocina franconia está abierto de 17:00 a 20:30 horas.",
+    "answer": "Dafür benötige ich bitte folgende Informationen:",
     "options": {
       "media": null,
       "buttons": [],
@@ -69,34 +69,45 @@
       "delay": 0
     },
     "from": "584248778622",
-    "refSerialize": "ba36159a220fb1c47b48ca46cfdddff7"
+    "refSerialize": "6cb16f0ad679e7983c20a88ec27988ba"
   },
   {
-    "ref": "585a0267-a4aa-4d57-83a0-db5ed2919b8e",
-    "keyword": "49917b190c4bc0688aa7b0e433da2d0d",
-    "answer": "_event_voice_note__ab50786c-a00e-4363-a134-e4c01c095e8f",
-    "options": {},
-    "from": "584248778622",
-    "refSerialize": "3228e3fa5e7ada276c758dd58201c001"
-  },
-  {
-    "ref": "ans_9218648f-5794-4311-9546-51a79cfcf255",
-    "keyword": "key_89a07005-e60c-4f99-9ae2-66d1885c1966",
-    "answer": "¡Recibí tu mensaje de voz! Dame un momento para escuchar y responderte. 🔉🔉",
+    "ref": "7dcccaf7-4742-4b9d-9d45-3a3f01bf39c3",
+    "keyword": null,
+    "answer": "1. Datum der Reservierung.\n2. Uhrzeit der Reservierung.\n3. Ihren Namen.\n4. Anzahl der Personen.\n5. Besondere Vorkehrungen, falls gewünscht (z. B. Allergien, spezielle Wünsche).",
     "options": {
+      "media": null,
       "buttons": [],
       "capture": false,
-      "delay": 0,
-      "nested": [],
-      "keyword": {},
-      "callback": false
+      "delay": 0
     },
-    "refSerialize": "d0e7654fc2c66144ed966e1af9ecbe84",
-    "from": "584248778622"
+    "from": "584248778622",
+    "refSerialize": "271124013b3a45e4a2c6086fceae53a8"
   },
   {
-    "ref": "ans_ba6bd241-ff63-4fa1-a4a3-ec17c8d34b48",
-    "keyword": "ans_9218648f-5794-4311-9546-51a79cfcf255",
+    "ref": "f690d04e-98c4-49e2-857e-cdd652b0cb73",
+    "keyword": null,
+    "answer": "Sobald ich diese Angaben habe, kann ich die Reservierung für Sie vornehmen.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "584248778622",
+    "refSerialize": "e46751e1b6e8d54d2a4eb996b6500e15"
+  },
+  {
+    "ref": "ed0eff63-da1c-44fc-827d-61310fd5cafc",
+    "keyword": "30d9dceb04ce11de1e7304f760259d82",
+    "answer": "Am 18.06.2025 \n12:00 Uhr \nAvila \n5",
+    "options": {},
+    "from": "584248778622",
+    "refSerialize": "05d4ab8dde7d725588d4368fd2cb0e25"
+  },
+  {
+    "ref": "ans_44e66e72-09d3-40f3-b644-c10daad49a3c",
+    "keyword": "key_240392e9-42df-49cb-a81f-bf52ccfb026b",
     "answer": "__call_action__",
     "options": {
       "buttons": [],
@@ -106,20 +117,7 @@
       "keyword": {},
       "callback": true
     },
-    "refSerialize": "fe5f5a00e07c7e28340d1d5124b2c759",
+    "refSerialize": "30d9dceb04ce11de1e7304f760259d82",
     "from": "584248778622"
-  },
-  {
-    "ref": "6e82b34d-caa3-4298-822c-b53848a7b412",
-    "keyword": null,
-    "answer": " ",
-    "options": {
-      "media": "tmp/audio_1749488007225.mp3",
-      "buttons": [],
-      "capture": false,
-      "delay": 0
-    },
-    "from": "584248778622",
-    "refSerialize": "8479f3beb61500f131d500af38b2f96b"
   }
 ]
