@@ -25,7 +25,8 @@ const ASSISTANT_ID = process.env.ASSISTANT_ID ?? '';
 export const processUserMessage = async (ctx, { flowDynamic, state, provider }) => {
     await typing(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
-    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state);
+    // Solo pasa el mensaje y el provider
+    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state, ctx, provider);
     saveLog(
         'user_message_logs',
         ctx.key?.id || ctx.from || 'unknown',
@@ -51,7 +52,8 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
 export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider }) => {
     await recording(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
-    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state);
+    // Solo pasa el mensaje y el provider
+    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state, ctx, provider);
     saveLog(
         'user_message_logs',
         ctx.key?.id || ctx.from || 'unknown',

@@ -97,7 +97,8 @@ export const runWithStreaming = async (threadId: string, assistant: any): Promis
     return response;
 };
 
-export const toAskWithStreaming = async (assistantId: string, message: string, state: BotStateStandAlone) => {
+// Envía un mensaje al assistant y obtiene la respuesta usando streaming
+export const toAskWithStreaming = async (assistantId: string, message: string, state: BotStateStandAlone, ctx?: any, provider?: any) => {
     let thread = state.get('thread') ?? null;
     const assistant = { id: assistantId };
     if (!thread) {
@@ -105,6 +106,6 @@ export const toAskWithStreaming = async (assistantId: string, message: string, s
         await state.update({ thread });
     }
     await addMessage(thread, message);
-    const response = await runWithStreaming(thread, assistant);
+    const response = await runWithStreaming(thread, assistant, ctx, provider);
     return response;
 };
