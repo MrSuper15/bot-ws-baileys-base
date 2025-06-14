@@ -48,12 +48,11 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
     }
 };
 
-// Mensaje de usuario (audio)
-export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider }) => {
+// answerWithAudio: si es true responde con audio, si es false responde con texto transcrito
+export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider, answerWithAudio = false }) => {
     await recording(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
-    // Solo pasa el mensaje y el provider
-    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state, ctx, provider);
+    const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state);
     saveLog(
         'user_message_logs',
         ctx.key?.id || ctx.from || 'unknown',
@@ -65,9 +64,18 @@ export const processAudioUserMessage = async (ctx, { flowDynamic, state, provide
             state: state?.toJSON ? state.toJSON() : state
         }
     );
-    const audioPath = await textToSpeech(response);
-    console.log(`[Response sent][BOT][${ctx.from}] ${response}`);
-    await flowDynamic([{ media: audioPath }]);
+    if (answerWithAudio) {
+        const audioPath = await textToSpeech(response);
+        console.log(`[Response sent][BOT][${ctx.from}] ${response}`);
+        await flowDynamic([{ media: audioPath }]);
+    } else {
+        // Solo responde con texto transcrito
+        const cleanedChunk = response.trim().replace(/【.*?】[ ] /g, "");
+        if (cleanedChunk) {
+            console.log(`[Response sent][BOT][${ctx.from}] ${cleanedChunk}`);
+            await flowDynamic([{ body: cleanedChunk }]);
+        }
+    }
 };
 
 // Cola de mensajes de usuario (texto)
