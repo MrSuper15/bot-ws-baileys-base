@@ -12,8 +12,7 @@ const aiFlow = addQueueFlow(EVENTS.WELCOME, processUserMessage);
 const audioFlow = addQueueFlow(
     EVENTS.VOICE_NOTE,
     processAudioUserMessage,
-    audioHandler,
-    "¡Recibí tu mensaje de voz! Dame un momento para escuchar y responderte. 🔉🔉"
+    audioHandler
 );
 
 const mediaFlow = addKeyword<Provider, Database>(['schaufele'])
