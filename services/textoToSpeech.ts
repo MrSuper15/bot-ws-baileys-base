@@ -11,7 +11,7 @@ export const textToSpeech = async (text) => {
         const response = await openai.audio.speech.create({
             model: "gpt-4o-mini-tts",
             input: text,
-            voice: "verse"
+            voice: "alloy"
         });
         // Convertir el ReadableStream a un Buffer
         const reader = response.body.getReader();

@@ -42,7 +42,8 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
     );
     const chunks = response.split(/\n\n+/);
     for (const chunk of chunks) {
-        const cleanedChunk = chunk.trim().replace(/【.*?】[ ] /g, "");
+        // Elimina cualquier referencia tipo 【8:0†flujo_curso_ingles.txt】 en cualquier parte del texto
+        const cleanedChunk = chunk.trim().replace(/【[^】]+】/g, "");
         if (cleanedChunk) {
             console.log(`[Response sent][BOT][${ctx.from}] ${cleanedChunk}`);
             await flowDynamic([{ body: cleanedChunk }]);
