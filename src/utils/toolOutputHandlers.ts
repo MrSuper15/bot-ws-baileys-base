@@ -1,5 +1,3 @@
-import { restaurantMakeReservationHandler } from './tool_outputs/restaurant_make_reservation';
-
 export type ToolCall = {
   id: string;
   function: { name: string };
