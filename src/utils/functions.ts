@@ -1,6 +1,8 @@
 import { toAskWithStreaming } from "./runWithStreaming";
 import { saveLog } from "../logs/saveLog";
 import { textToSpeech } from "../../services/textoToSpeech";
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Shared state
 export const userQueues = new Map();
@@ -49,7 +51,7 @@ export const processUserMessage = async (ctx, { flowDynamic, state, provider }) 
 };
 
 // answerWithAudio: si es true responde con audio, si es false responde con texto transcrito
-export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider, answerWithAudio = false }) => {
+export const processAudioUserMessage = async (ctx, { flowDynamic, state, provider, answerWithAudio = process.env.ANSWER_WITH_AUDIO === 'true' }) => {
     await recording(ctx, provider);
     console.log(`[Message received][USER][${ctx.from}] ${ctx.pushName || ctx.name || ctx.from}: ${ctx.body}`);
     const response = await toAskWithStreaming(ASSISTANT_ID, ctx.body, state);
