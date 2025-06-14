@@ -106,6 +106,6 @@ export const toAskWithStreaming = async (assistantId: string, message: string, s
         await state.update({ thread });
     }
     await addMessage(thread, message);
-    const response = await runWithStreaming(thread, assistant, ctx, provider);
+    const response = await runWithStreaming(thread, assistant);
     return response;
 };

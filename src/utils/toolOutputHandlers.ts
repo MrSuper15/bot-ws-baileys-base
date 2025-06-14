@@ -1,3 +1,5 @@
+import { restaurantMakeReservationHandler } from './tool_outputs/restaurant_make_reservation';
+
 export type ToolCall = {
   id: string;
   function: { name: string };
@@ -9,25 +11,14 @@ export type ToolOutput = {
   output: string;
 };
 
-export const toolOutputHandlers: Record<string, (toolCall: ToolCall) => ToolOutput> = {
-  getCurrentTemperature: (toolCall) => ({
-    tool_call_id: toolCall.id,
-    output: "57",
-  }),
-  getRainProbability: (toolCall) => ({
-    tool_call_id: toolCall.id,
-    output: "0.06",
-  }),
-  make_reservation: (toolCall) => ({
-    tool_call_id: toolCall.id,
-    output: "Successfully made a reservation at the restaurant. Your confirmation id is: 888394",
-  }),
+export const toolOutputHandlers: Record<string, (toolCall: ToolCall, provider?: any) => Promise<ToolOutput> | ToolOutput> = {
+  restaurant_make_reservation: restaurantMakeReservationHandler,
   // Agrega más handlers aquí según sea necesario
 };
 
-export function getToolOutput(toolCall: ToolCall): ToolOutput {
+export async function getToolOutput(toolCall: ToolCall, provider?: any): Promise<ToolOutput> {
   const handler = toolOutputHandlers[toolCall.function.name];
-  if (handler) return handler(toolCall);
+  if (handler) return await handler(toolCall, provider);
   return {
     tool_call_id: toolCall.id,
     output: JSON.stringify({ status: "success", result: true }),
