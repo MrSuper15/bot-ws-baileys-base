@@ -12,8 +12,7 @@ export type ToolOutput = {
 };
 
 export const toolOutputHandlers: Record<string, (toolCall: ToolCall, provider?: any) => Promise<ToolOutput> | ToolOutput> = {
-  restaurant_make_reservation: restaurantMakeReservationHandler,
-  // Agrega más handlers aquí según sea necesario
+
 };
 
 export async function getToolOutput(toolCall: ToolCall, provider?: any): Promise<ToolOutput> {
